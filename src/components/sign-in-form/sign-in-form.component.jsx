@@ -28,8 +28,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
   };
 
   const handleSubmit = async (event) => {
@@ -40,7 +39,7 @@ const SignInForm = () => {
         email,
         password
       );
-      console.log(user);
+
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/invalid-credential") {
